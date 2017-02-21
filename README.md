@@ -1,13 +1,9 @@
 # Main Idea
-Using one script tag by combining scripts together
-
-What if we could use `require` or `import` just like we do in node to require dependencies.
-Instead of relying on `window` global variable to require dependencies.
+While combining scripts together use babel so that we can use es6 syntax.
 
 # Note
-1. ignore copy files if `.js`.
-2. import other js from `app.js` with `import ... from ...` statement.
-3. multiple outputs are possible through multiple `entry` keys. `[name].bundle.js`.
-
+1. `.babelrc` has presets, which `babel-loader` uses by default
+2. `import` or `require` is supported by webpack, not by `babel-loader`
+3. we do not need to require `babel-loader` in `webpack.config.js`
 
 

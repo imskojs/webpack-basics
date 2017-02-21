@@ -10,6 +10,15 @@ module.exports = env => {
       path: path.resolve(__dirname, `public`),
       filename: `[name].bundle.js`
     },
+    module: {
+      rules: [
+        {
+          test: /\.js$/,
+          exclude: `/node_modules/`,
+          use: [ `babel-loader` ]
+        }
+      ]
+    },
     plugins: [
       new CopyWebpackPlugin([
         {
@@ -19,7 +28,7 @@ module.exports = env => {
           to: path.resolve(__dirname, `public`)
         }
       ])
-    ]
+    ],
   }
 
   console.log(`env: ${env}`)

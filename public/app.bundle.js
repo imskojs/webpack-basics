@@ -68,7 +68,10 @@
 /************************************************************************/
 /******/ ([
 /* 0 */
-/***/ (function(module, exports) {
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
 
 // app.sub1.js
 
@@ -76,7 +79,10 @@ console.log('app.sub1.js');
 
 /***/ }),
 /* 1 */
-/***/ (function(module, exports) {
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
 
 // app.sub2.js
 
@@ -84,19 +90,34 @@ console.log('app.sub2.js');
 
 /***/ }),
 /* 2 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__app_sub1_js__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__app_sub1_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__app_sub1_js__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_sub2_js__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_sub2_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__app_sub2_js__);
-// Check this out in public/byProductOfRequiredConfigProperties.js
+
+
+var _appSub = __webpack_require__(0);
+
+var _appSub2 = _interopRequireDefault(_appSub);
+
+var _appSub3 = __webpack_require__(1);
+
+var _appSub4 = _interopRequireDefault(_appSub3);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } } // Check this out in public/byProductOfRequiredConfigProperties.js
 
 
 var text = document.createTextNode(' This is appended by JavaScript');
 document.querySelector('h1').appendChild(text);
+
+var TestingBabel = function TestingBabel() {
+  _classCallCheck(this, TestingBabel);
+
+  console.log('instantiating');
+};
+
+var test = new TestingBabel();
 
 /***/ })
 /******/ ]);
