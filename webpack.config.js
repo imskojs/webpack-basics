@@ -8,14 +8,15 @@ module.exports = env => {
     },
     output: {
       path: path.resolve(__dirname, `public`),
-      filename: `byProductOfRequiredConfigProperties.js`
+      filename: `[name].bundle.js`
     },
     plugins: [
       new CopyWebpackPlugin([
         {
-          context: path.resolve(__dirname, 'src'),
+          context: path.resolve(__dirname, `src`),
           from: `**/*`,
-          to: path.resolve(__dirname, 'public')
+          ignore: [`**/*.js`],
+          to: path.resolve(__dirname, `public`)
         }
       ])
     ]
