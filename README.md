@@ -1,8 +1,8 @@
 # Main Idea
-Importing libraries from `node_modules`.
-Code splitting libraries and app code.
+Importing libraries that are not available from `npm` using `import` or `require`
+
 # Note
-1. in `src/app.js` libraries from `node_modules` do not have filepath, just like Node.js
-2. If no `CommonChunkPlugin` is used then `moment` library will exist in `app.bundle.js` as well as `vendor.bundle.js`
-3. `CommonChunkPlugin` is webpack core plugin
-4. `CommonChunkPlugin` strips away what is common in both `app.bundle.js` and `vendor.bundle.js`, then it makes new file with `output.filename` and `name` property in `CommonsChunkPlugin` argument. Hence if `CommonsChunkPlugin`'s name property is `vendor` it overwrites `vendor.bundle.js` that was created by `output.filename` and `entry.vendor`
+1. `imports-loader` changes or eliminates global variable.
+  1. eg) `imports-loader?window=>{}` injects `var window = {}` in the importing library.
+2. `exports-loader` injects `module.exports = objectWeWantToExport`
+  1. eg) `exports-loader?leftPad` injects `module.exports = leftPad`

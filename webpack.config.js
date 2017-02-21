@@ -14,10 +14,14 @@ module.exports = env => {
     },
     module: {
       rules: [
-        {
-          test: /\.js$/,
+        { 
+          test: /\.js$/, 
           exclude: `/node_modules/`,
-          use: [ `babel-loader` ]
+          use: [ `babel-loader` ] 
+        },
+        { 
+          test: require.resolve(path.resolve(__dirname, `non_node_modules`, `left-pad`)),
+          use: [ `imports-loader?window=>{}`, `exports-loader?leftPad` ]
         }
       ]
     },
