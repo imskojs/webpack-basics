@@ -1,8 +1,7 @@
 # Main Idea
-Importing libraries that are not available from `npm` using `import` or `require`
+Tree Shaking: Remove exported but unused code.
 
 # Note
-1. `imports-loader` changes or eliminates global variable.
-  1. eg) `imports-loader?window=>{}` injects `var window = {}` in the importing library.
-2. `exports-loader` injects `module.exports = objectWeWantToExport`
-  1. eg) `exports-loader?leftPad` injects `module.exports = leftPad`
+1. Unused code still exists in a file that is exporting. It will be removed when minified
+2. All it needs is `presets: [['es2015', {modules: false}]]` in `.babelrc`. Note nested array
+3. modules loaded using `require.resolve` in `webpack.config.js`cannot get tree shaked

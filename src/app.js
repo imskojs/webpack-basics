@@ -10,7 +10,6 @@ document.querySelector('h1').appendChild(text)
 class TestingBabel {
   constructor(){
     console.log(moment().format())
-    console.log(leftPad('abc', 5))
   }
 }
 

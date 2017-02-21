@@ -21,7 +21,7 @@ module.exports = env => {
         },
         { 
           test: require.resolve(path.resolve(__dirname, `non_node_modules`, `left-pad`)),
-          use: [ `imports-loader?window=>{}`, `exports-loader?leftPad` ]
+          use: [ `exports-loader?leftPad`, `imports-loader?window=>{}`  ]
         }
       ]
     },
