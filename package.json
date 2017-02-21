@@ -1,0 +1,28 @@
+{
+  "name": "webpack-basics",
+  "version": "1.0.0",
+  "description": "Learn webpack basics",
+  "main": "webpack.config.js",
+  "scripts": {
+    "build": "webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/imskojs/webpack-basics.git"
+  },
+  "keywords": [
+    "webpack",
+    "webpack2",
+    "latest"
+  ],
+  "author": "Seunghoon Ko",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/imskojs/webpack-basics/issues"
+  },
+  "homepage": "https://github.com/imskojs/webpack-basics#readme",
+  "devDependencies": {
+    "copy-webpack-plugin": "^4.0.1",
+    "webpack": "^2.2.1"
+  }
+}
