@@ -1,6 +1,7 @@
 const path = require('path')
 const webpack = require('webpack')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = env => {
   const config = {
@@ -10,7 +11,7 @@ module.exports = env => {
     },
     output: {
       path: path.resolve(__dirname, `public`),
-      filename: `[name].bundle.js`
+      filename: `[name].bundle.[chunkHash].js`
     },
     module: {
       rules: [
@@ -30,13 +31,14 @@ module.exports = env => {
         {
           context: path.resolve(__dirname, `src`),
           from: `**/*`,
-          ignore: [`**/*.js`],
+          ignore: [`**/*.js`, `**/index.html`],
           to: path.resolve(__dirname, `public`)
         }
       ]),
       new webpack.optimize.CommonsChunkPlugin({
         name: 'vendor'
-      })
+      }),
+      new HtmlWebpackPlugin({ template: path.resolve(__dirname, `src`, `index.html`) })
     ],
   }
 

@@ -1,7 +1,7 @@
 # Main Idea
-Tree Shaking: Remove exported but unused code.
+Creating output with chunkHash. So that we can cache it infinitely.
 
 # Note
-1. Unused code still exists in a file that is exporting. It will be removed when minified
-2. All it needs is `presets: [['es2015', {modules: false}]]` in `.babelrc`. Note nested array
-3. modules loaded using `require.resolve` in `webpack.config.js`cannot get tree shaked
+1. by `[chunkHash].bundle.js`  we no longer use that file in index.html as is now as it will be different everytime we build it.
+2. use `html-webpack-plugin` to use `[chunkHash]` name in `index.html`
+2. we can cache the file indefintely as everytime we build and deploy we will get the new file.
