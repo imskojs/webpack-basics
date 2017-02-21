@@ -1,10 +1,12 @@
 const path = require('path')
+const webpack = require('webpack')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 
 module.exports = env => {
   const config = {
     entry: {
-      app: path.resolve(__dirname, `src`, `app.js`)
+      app: path.resolve(__dirname, `src`, `app.js`),
+      vendor: ['moment']
     },
     output: {
       path: path.resolve(__dirname, `public`),
@@ -27,7 +29,10 @@ module.exports = env => {
           ignore: [`**/*.js`],
           to: path.resolve(__dirname, `public`)
         }
-      ])
+      ]),
+      new webpack.optimize.CommonsChunkPlugin({
+        name: 'vendor'
+      })
     ],
   }
 
